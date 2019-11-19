@@ -1,0 +1,19 @@
+schema {
+    query: Query
+}
+
+type Query {
+    coffees: [Coffee]
+    coffee(id: Int!): Coffee
+}
+
+type Mutation {
+    postCoffee(name: String!, price: Int): Coffee
+#    updateCoffee(id: Int!, name: String, price: Int): Coffee
+}
+
+type Coffee {
+    id: Int
+    name: String
+    price: Int
+}

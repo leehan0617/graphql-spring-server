@@ -1,0 +1,12 @@
+server:
+  port: 10624
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb;MODE=MySQL;INIT=runscript from 'classpath:sql/ddl/table.sql'
+    username: admin
+    password: admin
