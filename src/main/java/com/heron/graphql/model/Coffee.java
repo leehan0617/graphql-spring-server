@@ -14,6 +14,8 @@ import javax.persistence.Table;
 @Table(name = "coffee")
 public class Coffee {
 
+    public static Coffee DEFAULT_COFFEE = new Coffee(0, "Default Coffee", 0);
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -22,6 +24,16 @@ public class Coffee {
     @Column
     private int price;
 
+    public Coffee () { }
+    public Coffee (String name, int price) {
+        this.name = name;
+        this.price = price;
+    }
+    public Coffee (int id, String name, int price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
     public int getId() {
         return id;
     }
@@ -30,14 +42,5 @@ public class Coffee {
     }
     public int getPrice () {
         return price;
-    }
-    public void setId (int id) {
-        this.id = id;
-    }
-    public void setName (String name) {
-        this.name = name;
-    }
-    public void setPrice (int price) {
-        this.price = price;
     }
 }

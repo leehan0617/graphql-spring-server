@@ -1,5 +1,6 @@
 schema {
     query: Query
+    mutation: Mutation
 }
 
 type Query {
@@ -9,11 +10,16 @@ type Query {
 
 type Mutation {
     postCoffee(name: String!, price: Int): Coffee
-#    updateCoffee(id: Int!, name: String, price: Int): Coffee
+    updateCoffee(id: Int!, name: String, price: Int): Coffee
+    deleteCoffee(id: Int!): SimpleResponse
 }
 
 type Coffee {
     id: Int
     name: String
     price: Int
+}
+
+type SimpleResponse {
+    message: String
 }

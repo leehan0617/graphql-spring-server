@@ -26,6 +26,8 @@ public class CoffeeQuery implements GraphQLQueryResolver {
     }
 
     public Coffee getCoffee (int id) {
-        return coffeeRepository.findById(id).orElse(null);
+        Coffee coffee = coffeeRepository.findById(id)
+                                        .orElse(Coffee.DEFAULT_COFFEE);
+        return coffee;
     }
 }
